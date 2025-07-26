@@ -203,3 +203,59 @@ button:hover {
   font-size: 0.95em;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f6fa;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #4a69bd;
+  padding: 1em;
+  text-align: center;
+}
+
+.navbar a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.quiz-box {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-box h2 {
+  text-align: center;
+  color: #4a69bd;
+}
+
+.quiz-box label {
+  display: block;
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.quiz-box button {
+  background-color: #4a69bd;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.quiz-box p#quizResult {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - SkillSphere</title>
+  <link rel="stylesheet" href="style_task2.css">
+</head>
+<body>
+  <nav class="navbar">
+     <a href="index_task3.html">🏠 Home</a>
+        <a href="login_task3.html">🔐 Login</a>
+        <a href="quiz_task2.html">🧠 Quiz</a>
+        <a href="api_task2.html">🌐 Live API</a>
+        <a href="todo_task3.html">📝 To-Do</a>
+        <a href="contact_task3.html">📩 Contact</a>
+  </nav>
+
+  <div class="login-box">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="4" required></textarea>
+
+      <button type="submit">Send Message</button>
+      <p id="contact-error" class="error"></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const error = document.getElementById("contact-error");
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!name || !email || !message) {
+        error.textContent = "❌ Credentials not satisfied. Please fill all fields.";
+        e.preventDefault();
+      } else if (!emailRegex.test(email)) {
+        error.textContent = "❌ Invalid email format.";
+        e.preventDefault();
+      } else {
+        error.textContent = "";
+        alert("✅ Message sent successfully!");
+      }
+    });
+  </script>
+</body>
+</html>

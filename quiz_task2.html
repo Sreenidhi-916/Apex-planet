@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz - SkillSphere</title>
+  <link rel="stylesheet" href="style_task2.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index_task3.html">🏠 Home</a>
+        <a href="login_task3.html">🔐 Login</a>
+        <a href="quiz_task2.html">🧠 Quiz</a>
+        <a href="api_task2.html">🌐 Live API</a>
+        <a href="todo_task3.html">📝 To-Do</a>
+        <a href="contact_task3.html">📩 Contact</a>
+  </nav>
+
+  <div class="quiz-box">
+    <h2>Quick Quiz</h2>
+    <div id="quiz"></div>
+    <button onclick="submitQuiz()">Submit</button>
+    <p id="quizResult"></p>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "What does HTML stand for?",
+        options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"],
+        correct: 0
+      },
+      {
+        question: "What year was JavaScript created?",
+        options: ["1995", "2000", "2005"],
+        correct: 0
+      }
+    ];
+
+    const quizDiv = document.getElementById("quiz");
+
+    quizData.forEach((q, i) => {
+      const questionHTML = `
+        <p><strong>${i + 1}. ${q.question}</strong></p>
+        ${q.options.map((opt, j) =>
+          `<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label><br>`
+        ).join("")}
+        <br>
+      `;
+      quizDiv.innerHTML += questionHTML;
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      quizData.forEach((q, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected && parseInt(selected.value) === q.correct) {
+          score++;
+        }
+      });
+      document.getElementById("quizResult").textContent = `✅ You scored ${score}/${quizData.length}`;
+    }
+  </script>
+</body>
+</html>

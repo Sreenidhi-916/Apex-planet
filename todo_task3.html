@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List - SkillSphere</title>
+  <link rel="stylesheet" href="style_task2.css">
+</head>
+<body>
+  <nav class="navbar">
+     <a href="index_task3.html">🏠 Home</a>
+     <a href="login_task3.html">🔐 Login</a>
+     <a href="quiz_task2.html">🧠 Quiz</a>
+     <a href="api_task2.html">🌐 Live API</a>
+     <a href="todo_task3.html">📝 To-Do</a>
+     <a href="contact_task3.html">📩 Contact</a>
+
+  </nav>
+
+  <div class="login-box">
+    <h2>To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter new task" />
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const taskList = document.getElementById("taskList");
+
+      if (input.value.trim() !== "") {
+        const li = document.createElement("li");
+        li.textContent = input.value;
+        li.onclick = () => li.remove();
+        taskList.appendChild(li);
+        input.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
